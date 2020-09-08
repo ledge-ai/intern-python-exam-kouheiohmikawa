@@ -22,3 +22,32 @@ x = df["carvolume"]
 y = df["price"]
 
 plt.scatter(x,y)
+
+df.head()
+
+sns.scatterplot(x,y,hue = df["fueltype"])
+
+data1 = df["stroke"]
+data2 = df["price"]
+
+sns.jointplot(data1,data2)
+
+sns.jointplot(data1,data2,kind="hex")
+
+sns.rugplot(data2)
+plt.hist(data2,alpha=0.3)
+
+sns.kdeplot(data2)
+
+sns.rugplot(data2,color="black")
+
+plt.hist(data2,cumulative=True)
+
+sns.kdeplot(data1, data2)
+
+sns.kdeplot(data1, data2,shade=True)
+
+x1 = df["carvolume"]
+y1 = df["horsepower"]
+
+sns.scatterplot(x1,y1,hue = df["fueltype"])
