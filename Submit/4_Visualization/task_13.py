@@ -51,3 +51,53 @@ x1 = df["carvolume"]
 y1 = df["horsepower"]
 
 sns.scatterplot(x1,y1,hue = df["fueltype"])
+
+*とりあえず相関関係を確認*
+
+df.corr().sort_values("price",ascending=False)
+
+*highwaympgはpriceと負の相関が強いのでグラフにしてみる*
+
+x = df["highwaympg"]
+y = df["price"]
+
+plt.scatter(x,y)
+plt.xlabel("highwaympg")
+plt.ylabel("price")
+
+df.corr().sort_values("highwaympg")
+
+*citympgとhighwaympgはお互いの相関が強くpriceとは負の相関関係なのでまとめたmpgというカラムを作ってpriceとの関係を調べる*
+
+df["mpg"] = df["highwaympg"] * df["citympg"]
+
+mpg = df["mpg"]
+price = df["price"]
+
+mpg.corr(price)
+
+*あまり変わらなかた(むしろ低くなった)*
+
+*curbweightとcarvolumeは相関が強そう*
+
+x = df["curbweight"]
+y = df["carvolume"]
+
+plt.scatter(x,y)
+plt.xlabel("curbweight")
+plt.ylabel("carvolume")
+x.corr(y)
+*相関が強かったのでこの2つから新しい変数を作ってpriceと比べてみる*
+
+c = x * y
+z = df["price"]
+plt.scatter(c,z)
+c.corr(z)
+
+*wheelbaseとcarlengthは比例しそう*
+
+x = df["wheelbase"]
+y = df["carlength"]
+
+plt.scatter(x,y)
+x.corr(y)
