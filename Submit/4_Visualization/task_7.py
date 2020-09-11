@@ -6,3 +6,11 @@
 # 以下よりコードを記入してください  ##############################
 
 sns.scatterplot(x, y, hue=df["carbody"])
+
+
+
+# 解き直し ##############################
+# 以下よりコードを記入してください  ##############################
+x = df["carlength"]
+y = df["carwidth"]
+sns.scatterplot(x, y, hue=df["carbody"])

@@ -24,3 +24,32 @@ name_df["city"] = city
 
 # 出力  #################################################
 display(name_df)
+
+
+
+# 解き直し  ##############################
+name_dict = {"name":["John Artur Doe", "Jane Ann Smith", "Nico P"], 
+     "location":["Los Angeles, CA", "Washington, DC", "Barcelona, Spain"]}
+# 以下よりコードを記入してください  ##############################
+
+name_df = pd.DataFrame(name_dict)
+
+def split(x):
+    name = x.map(lambda x:x.split())
+    return name
+
+first = split(name_df["name"])[0]
+middle = split(name_df["name"])[1]
+last = split(name_df["name"])[2]
+last.append(np.nan)
+
+name_df["first"] = first
+name_df["middle"] = middle
+name_df["last"] = last
+
+city = name_df["location"].map(lambda x:x.split(",")[0])
+
+name_df["city"] = city
+
+# 出力  #################################################
+display(name_df)
