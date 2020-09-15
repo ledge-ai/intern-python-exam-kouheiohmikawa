@@ -52,11 +52,11 @@ y1 = df["horsepower"]
 
 sns.scatterplot(x1,y1,hue = df["fueltype"])
 
-*とりあえず相関関係を確認*
+#とりあえず相関関係を確認
 
 df.corr().sort_values("price",ascending=False)
 
-*highwaympgはpriceと負の相関が強いのでグラフにしてみる*
+#highwaympgはpriceと負の相関が強いのでグラフにしてみる
 
 x = df["highwaympg"]
 y = df["price"]
@@ -67,7 +67,7 @@ plt.ylabel("price")
 
 df.corr().sort_values("highwaympg")
 
-*citympgとhighwaympgはお互いの相関が強くpriceとは負の相関関係なのでまとめたmpgというカラムを作ってpriceとの関係を調べる*
+#citympgとhighwaympgはお互いの相関が強くpriceとは負の相関関係なのでまとめたmpgというカラムを作ってpriceとの関係を調べる
 
 df["mpg"] = df["highwaympg"] * df["citympg"]
 
@@ -76,9 +76,9 @@ price = df["price"]
 
 mpg.corr(price)
 
-*あまり変わらなかた(むしろ低くなった)*
+#あまり変わらなかた(むしろ低くなった)
 
-*curbweightとcarvolumeは相関が強そう*
+#curbweightとcarvolumeは相関が強そう
 
 x = df["curbweight"]
 y = df["carvolume"]
@@ -87,17 +87,49 @@ plt.scatter(x,y)
 plt.xlabel("curbweight")
 plt.ylabel("carvolume")
 x.corr(y)
-*相関が強かったのでこの2つから新しい変数を作ってpriceと比べてみる*
+#相関が強かったのでこの2つから新しい変数を作ってpriceと比べてみる
 
 c = x * y
 z = df["price"]
 plt.scatter(c,z)
 c.corr(z)
 
-*wheelbaseとcarlengthは比例しそう*
+#wheelbaseとcarlengthは比例しそう
 
 x = df["wheelbase"]
 y = df["carlength"]
 
 plt.scatter(x,y)
 x.corr(y)
+
+#mpgとenginesizeは関係ありそうなので燃料とエンジンのタイプで分けて可視化する
+mpg = df["mpg"]
+enginesize = df["enginesize"]
+
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+sns.scatterplot(enginesize, mpg,hue=df["fueltype"])
+
+plt.subplot(1,2,2)
+sns.scatterplot(enginesize, mpg, hue=df["enginetype"])
+
+corr = mpg.corr(enginesize)
+print("相関係数:",corr)
+
+#enginesizeとpriceは比例しそうなのでenginetypeに分けて可視化
+price = df["price"]
+sns.scatterplot(enginesize, price, hue=df["enginetype"])
+
+
+#enginesizeとhorsepowerは比例関係にあるが、fuelsystemとenginetypeに分けてみる
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+
+horsepower = df["horsepower"]
+sns.scatterplot(enginesize, horsepower, hue=df["fuelsystem"])
+
+plt.subplot(1,2,2)
+sns.scatterplot(enginesize, horsepower, hue=df["enginetype"])
+
+corr = horsepower.corr(enginesize)
+print("相関係数:",corr)
