@@ -2,5 +2,5 @@
 
 
 # 以下よりコードを記入してください  ##############################
-
+df.groupby("drivewheel")["price"].mean().plot(kind="bar")
 

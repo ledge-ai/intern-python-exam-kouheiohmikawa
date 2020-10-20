@@ -4,7 +4,11 @@
 
 
 # 以下よりコードを記入してください  ##############################
-
+C_max = np.max(C)
+C_min = np.min(C)
+C_mean = np.mean(C)
+C_median = np.median(C)
+C_quartile_1, C_quartile_3 = np.percentile(C,q = [25,75])
 
 # 出力  #################################################
 print(C_max)

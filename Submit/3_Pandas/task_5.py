@@ -20,7 +20,12 @@ sample_dict_3 =  {
     'index_num': [0, 1, 2, 3, 4]
 }
 # 以下よりコードを記入してください  ##############################
+df_s_2 = pd.DataFrame(sample_dict_2)
+df_s_3 = pd.DataFrame(sample_dict_3)
 
+df_5_1 = pd.merge(df_s_2,df_s_3, on = "id")
+df_5_2 = pd.merge(df_s_2,df_s_3, how = "outer")
+df_5_3 = pd.merge(df_s_2,df_s_3, how = "left")
 
 # 出力  #################################################
 display(df_5_1)

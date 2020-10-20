@@ -4,5 +4,9 @@
 
 
 # 以下よりコードを記入してください  ##############################
+x = df["enginesize"]
+y = df["price"]
 
+
+sns.scatterplot(x,y)
 

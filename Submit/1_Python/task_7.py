@@ -10,7 +10,17 @@
 
 PerfectNumbers = []
 # 以下よりコードを記入してください  ##############################
+def div_sum(n):
+    sum = 0 
+    for d in range(1, n + 1): 
+        if n % d == 0: 
+            sum += d 
+    return sum
 
+l = 10000
+for i in range(1, l + 1):
+    if div_sum(i) == 2 * i:
+        PerfectNumbers.append(i)
         
 # 出力  #################################################
 print(PerfectNumbers)

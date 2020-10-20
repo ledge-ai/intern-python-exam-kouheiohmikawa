@@ -16,4 +16,19 @@
 
 # 以下よりコードを記入してください  ##############################
 
+#1~2000までの友愛数を求める
 
+def div_sum(p):
+    return sum([n for n in range(1,p) if p % n == 0])
+
+def Fraternity(min, max):
+    Fraternity_list = []
+    for n in range(min, max + 1):
+        div = div_sum(n)
+        if n == div_sum(div) and n != div:
+            m = sorted([n,div])
+            if not Fraternity_list.count(m):
+                Fraternity_list.append(m)
+    return Fraternity_list
+
+Fraternity(1, 2000)

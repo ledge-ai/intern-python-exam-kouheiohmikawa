@@ -7,7 +7,15 @@
 ans_list = []
 
 # 以下よりコードを記入してください  ##############################
-
+for i in range(1,51):
+    if i % 36 == 0:
+        ans_list.append("FuzzBuzz")
+    elif i % 4 == 0:
+        ans_list.append("Fuzz")
+    elif i % 9 == 0:
+        ans_list.append("Buzz")
+    else:
+        ans_list.append(i)
         
 # 出力  #################################################
 print(ans_list)

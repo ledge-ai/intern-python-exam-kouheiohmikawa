@@ -5,4 +5,9 @@
 
 # 以下よりコードを記入してください  ##############################
 
+df_8 = df.select_dtypes(["int64","float64"])
+df_8 = df_8.drop("car_ID",axis=1)
+corr = df_8.corr()
 
+plt.figure(figsize=(9,9))
+sns.heatmap(corr,annot=True)

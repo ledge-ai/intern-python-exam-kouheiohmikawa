@@ -5,8 +5,28 @@
 
 numeric_df = pd.DataFrame(np.random.randint(1,100, (20,7)))
 # 以下よりコードを記入してください  ##############################
-
+df_10_1 = numeric_df.iloc[0:14]
+df_10_2 = numeric_df.iloc[14:20]
 
 # 出力  #################################################
 print(df_10_1.shape)
 print(df_10_2.shape)
+
+
+
+
+
+
+# 解き直し  ##############################
+numeric_df = pd.DataFrame(np.random.randint(1,100, (20,7)))
+# 以下よりコードを記入してください  ##############################
+l = len(numeric_df)
+t = int(l * 0.7)
+
+df_10_1 = numeric_df.iloc[0:t]
+df_10_2 = numeric_df.iloc[t:l]
+
+# 出力  #################################################
+print(df_10_1.shape)
+print(df_10_2.shape)
+

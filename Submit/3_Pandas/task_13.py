@@ -10,6 +10,8 @@ car_price_assign_df = pd.read_csv('../data/CarPrice_Assignment.csv')
 
 
 # 以下よりコードを記入してください  ##############################
+list_13 = car_price_assign_df["CarName"].value_counts().index[0:3].tolist()
+df_13 = car_price_assign_df[car_price_assign_df["CarName"].isin(list_13)]
 
 
 # 出力  #################################################

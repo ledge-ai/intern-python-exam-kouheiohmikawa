@@ -5,8 +5,33 @@
 
 
 # 以下よりコードを記入してください  ##############################
+frequencies = car_price_assign_df["carbody"].value_counts()
+
+small_categories = frequencies[frequencies<10].index.to_list()
+
+car_price_assign_df = car_price_assign_df.replace({small_categories[0]:"others"})
+car_price_assign_df = car_price_assign_df.replace({small_categories[1]:"others"})
+others_freq = car_price_assign_df["carbody"].value_counts()
+
+# 出力  #################################################
+print(frequencies)
+print('#' * 20)
+print(small_categories)
+print('#' * 20)
+print(others_freq)
 
 
+
+# 解き直し  ##############################
+# 以下よりコードを記入してください  ##############################
+frequencies = car_price_assign_df["carbody"].value_counts()
+
+t = 10
+small_categories = frequencies[frequencies<t].index.to_list()
+
+car_price_assign_df = car_price_assign_df.replace({small_categories[0]:"others"})
+car_price_assign_df = car_price_assign_df.replace({small_categories[1]:"others"})
+others_freq = car_price_assign_df["carbody"].value_counts()
 # 出力  #################################################
 print(frequencies)
 print('#' * 20)

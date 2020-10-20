@@ -4,7 +4,10 @@
 
 
 # 以下よりコードを記入してください  ##############################
-
+import scipy.linalg as linalg
+    
+det_A = linalg.det(A)
+det_B = linalg.det(B)
 
 # 出力  #################################################
 print(det_A)

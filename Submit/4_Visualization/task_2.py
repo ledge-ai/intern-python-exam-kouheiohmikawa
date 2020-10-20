@@ -4,5 +4,5 @@
 
 
 # 以下よりコードを記入してください  ##############################
-
+df["drivewheel"].value_counts().plot(kind="bar")
 

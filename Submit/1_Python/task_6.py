@@ -6,7 +6,13 @@
 
 Fibonacci = [0, 1]
 # 以下よりコードを記入してください  ##############################
+i = 0
+while max(Fibonacci) <= 100000:
+    a = Fibonacci[i] + Fibonacci[i+1]
+    i += 1
+    Fibonacci.append(a)
 
+Fibonacci.pop(-1)
 
 # 出力  #################################################
 print(Fibonacci)

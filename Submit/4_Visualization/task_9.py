@@ -4,5 +4,17 @@
 
 
 # 以下よりコードを記入してください  ##############################
+sort_corr = corr.sort_values("price",ascending=False)
+list_9 = sort_corr[0:6].index.to_list()
+df_9 = df[list_9]
+df_9.corr()
 
 
+
+
+# 解き直し ##############################
+# 以下よりコードを記入してください  ##############################
+sort_corr = corr.sort_values("price",ascending=False)
+list_9 = sort_corr[0:6].index.to_list()
+df_9 = df[list_9]
+sns.pairplot(df_9)

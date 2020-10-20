@@ -5,4 +5,7 @@
 
 # 以下よりコードを記入してください  ##############################
 
+fueltype = df["fueltype"].value_counts().values
+labels = ["gas","diesel"]
 
+plt.pie(fueltype, labels = labels, autopct="%1.1f%%",startangle = 90)

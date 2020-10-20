@@ -5,4 +5,4 @@
 
 # 以下よりコードを記入してください  ##############################
 
-
+df["carbody"].value_counts(ascending=True).plot(kind="barh")

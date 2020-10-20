@@ -5,6 +5,9 @@
 
 # 以下よりコードを記入してください  ##############################
 
-
+sample_df_2 = pd.DataFrame(sample_dict_2)
+sample_df_2["id"] = sample_df_2["id"].astype("float")
+sample_df_2["birth_year"] = sample_df_2["birth_year"].astype("int")
+df_9 = sample_df_2.select_dtypes(["int64","float64"])
 # 出力  #################################################
 display(df_9)

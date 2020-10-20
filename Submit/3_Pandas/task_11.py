@@ -9,7 +9,9 @@
 
 age_df = numeric_df.rename(columns={0: 'age'}, inplace=False)
 # 以下よりコードを記入してください  ##############################
-
+bins = [0,18,65,99]
+labels = ["kids","adult","elderly"]
+age_df["age_group"] = pd.cut(age_df["age"],bins,labels = labels)
 
 # 出力  #################################################
 display(age_df)

@@ -6,3 +6,13 @@
 
 
 # 以下よりコードを記入してください  ##############################
+df.groupby("drivewheel")["price"].plot(kind="hist")
+plt.legend()
+
+
+
+
+
+# 解き直し ##############################
+# 以下よりコードを記入してください  ##############################
+df.groupby("drivewheel")["price"].plot(kind="hist", alpha=0.2,legend=True)
